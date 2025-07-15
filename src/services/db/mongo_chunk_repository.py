@@ -20,3 +20,6 @@ class MongoChunkRepository(ChunkRepository):
         ]
         await self.collection.insert_many(docs)
 
+    async def get_all_chunks(self):
+        return await self.collection.find({}).to_list(length=None)
+
